@@ -1,15 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import passport from "passport";
 import handlebars from "express-handlebars"
-import cookieParser from "cookie-parser";
-import session from "express-session";
+
 
 import { __dirname } from "./utils.js";
-import sessionRouter from "./routes/session.route.js";
 import viewsRouter from "./routes/views.route.js";
-import initializePassport from "./config/config.js";
 import userRouter from "./routes/users.route.js"
 
 dotenv.config();
@@ -35,7 +31,6 @@ app.set("view engine", "handlebars");
 
 // Rutas
 app.use("/", viewsRouter);
-app.use("/api/sessions", sessionRouter);
 app.use("/user", userRouter);
 
 
